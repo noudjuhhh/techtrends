@@ -1,0 +1,27 @@
+namespace:
+  name: sandbox
+
+image:
+  repository: noudjuh/techtrends
+  tag: latest
+  imagePullPolicy: IfNotPresent
+
+replicas: 1
+
+port: 3111
+
+service:
+  protocol: TCP
+  port: 4111
+  type: ClusterIP
+
+livenessProbe: /healthz
+readinessProbe: /healthz
+
+requests:
+  memory: 64Mi
+  cpu: 250m
+
+limits:
+  memory: 128Mi
+  cpu: 500m
